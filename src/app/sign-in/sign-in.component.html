@@ -1,0 +1,56 @@
+<mat-grid-list cols="3">
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile>
+<!--    {{error}}-->
+    <form (ngSubmit)="handleSubmit()" class="example-form" #myForm="ngForm">
+      <h1 class="title">{{title}}</h1>
+
+      <mat-form-field class="full-width-field" appearance="outline">
+        <mat-label>Email Address</mat-label>
+        <input type="email" matInput placeholder="Email Address" name="email" required minlength="4" [(ngModel)]="form['email']" #email ='ngModel'>
+      </mat-form-field>
+      <br>
+<!--      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+
+      <div *ngIf="email.invalid && (email.dirty || email.touched)">
+
+        <mat-error  *ngIf="email.errors?.['required']">
+          Email is required.
+        </mat-error >
+
+<!--        <mat-error  *ngIf="email.errors?.['email']">-->
+<!--          Email not valid.-->
+<!--        </mat-error >-->
+
+        <mat-error  *ngIf="email.errors?.['minlength']">
+          Name must be at least 4 characters long.
+        </mat-error >
+      </div>
+
+
+
+      <br>
+      <mat-form-field class="full-width-field" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput minlength="6" placeholder="Password" #password='ngModel' name="password" [(ngModel)]="form['password']" required>
+      </mat-form-field>
+
+      <div *ngIf="password.invalid && (password.dirty || password.touched)">
+        <mat-error  *ngIf="password.errors?.['required']">
+          password is required.
+        </mat-error >
+
+        <mat-error  *ngIf="password.errors?.['minlength']">
+          Name must be at least 6 characters long.
+        </mat-error >
+      </div>
+
+
+      <br>
+      <button [disabled]="myForm.form.invalid"  type="submit" class="btn"  mat-raised-button color="primary">Login</button>
+
+    </form>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+
+</mat-grid-list>

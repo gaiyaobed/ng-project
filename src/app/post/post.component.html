@@ -1,0 +1,11 @@
+<mat-card class="example-card">
+  <mat-card-title>{{post.title}}</mat-card-title>
+  <mat-card-content>
+    <p> {{post.body}} </p>
+  </mat-card-content>
+  <mat-divider inset></mat-divider>
+  <mat-card-actions>
+    <button [routerLink]="['/posts', post.id, 'details']" mat-button>View</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,16 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+
+.btn {
+  margin: 0px 12px
+}
+.link {
+  text-decoration: none;
+  color: #fff;
+}
+
+#brand {
+  cursor: pointer;
+}
